@@ -1,0 +1,93 @@
+.App{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.App > img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.App > div{
+    padding: 25px 51px 82px 51px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 30px rgba(80, 137, 145, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.AppName{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.AppWrapper{
+    width: 390px;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+}
+
+.AppInput{
+    flex: 1 0 auto;
+    padding: 12px 0;
+    text-align: center;
+    border: 0;
+    outline: none;
+    background: #EAEAEA;
+    border: 1px solid transparent;
+}
+.AppInput.invalid{
+    transition: all 0.3s ease;
+    border: 1px solid rgb(255, 48, 48);
+}
+
+
+.AppInput::placeholder{
+    color: #508991;
+}
+
+.AppInputBtn{
+    background-color: #004346;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    height: 41px;
+    width: 41px;
+    position: absolute;
+    right: 0;
+}
+
+.AppOr{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #004346;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.AppLocation{
+    padding: 11px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: white;
+    text-align: center;
+    background: #508991;
+    box-shadow: 0px 4px 6px rgba(196, 162, 135, 0.5);
+    user-select: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.AppLocation:hover{
+    background: #004346;
+}

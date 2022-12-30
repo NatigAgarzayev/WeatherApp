@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.block{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 493px;
+    padding-top: 35px;
+    background-color: #172A3A;
+    box-shadow: 0px 20px 30px rgba(23, 42, 58, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.block > h1{
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.block > img{
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
+
+.Location{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    color: white;
+}
+
+.Location span{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #EAEAEA;
+}
+.close{
+    position: relative;
+    top: -5px;
+    left: 180px;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.WeatherIcon{
+    text-align: center;
+}
+
+.WeatherIcon img{
+    text-align: center;
+    width: 165px;
+    width: 165px;
+}
+
+.Description{
+    color: #EAEAEA;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+}
+
+.Temprature{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 58px;
+    color: #EAEAEA;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.Other{
+    display: flex;
+    width: 100%;
+}
+
+.OtherItem{
+    flex: 0 0 50%;
+    display: flex;
+    background-color: #508991;
+    color: #EAEAEA;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    padding: 14px 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.OtherItem h6{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
