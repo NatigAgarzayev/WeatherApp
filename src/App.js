@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useState, useRef } from 'react';
 import './App.css';
 import Modal from './component/Modal';
-
 import SearchIcon from "./images/search.svg"
 import MainImage from "./images/main.svg"
 
@@ -29,7 +28,8 @@ function App() {
   }
 
   async function getAxios(url){
-    await axios.get(url)
+    try {
+      await axios.get(url)
       .then(response => {
         let dataObj = {
           name: response.data.name,
@@ -51,15 +51,18 @@ function App() {
           setVisible(false);
         }
       })
-    }
+    } catch (error) {
+      console.log(error)
+    }  
+  }
 
   return (
     <div className="App">
         <img src={MainImage} alt="123"/>
         <div>
           <h1 className='AppName'>Weather App</h1>
-          <div className='AppWrapper'>
-            <input className='AppInput' ref={inputValid} value={input} onChange={e => setInput(e.target.value)} type="text" placeholder="Enter city name" maxLength='20'/>
+          <div className='AppWrapper' ref={inputValid}>
+            <input className='AppInput' value={input} onChange={e => setInput(e.target.value)} type="text" placeholder="Enter the city name" maxLength='20'/>
             <button className='AppInputBtn' onClick={() => getData(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=9dfc2d2bba04c16af5ca8af9c77558c8`)} type="submit" value="search">
               <img width='20' height='20' src={SearchIcon} alt='123'/>
             </button>

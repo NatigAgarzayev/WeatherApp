@@ -9,6 +9,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: -1;
 }
 
 .App > div{
@@ -30,18 +31,20 @@
     display: flex;
     align-items: stretch;
     position: relative;
+    border: 1px solid transparent;
 }
 
 .AppInput{
     flex: 1 0 auto;
     padding: 12px 0;
     text-align: center;
+    overflow: hidden;
     border: 0;
     outline: none;
     background: #EAEAEA;
     border: 1px solid transparent;
 }
-.AppInput.invalid{
+.AppWrapper.invalid{
     transition: all 0.3s ease;
     border: 1px solid rgb(255, 48, 48);
 }
@@ -90,4 +93,37 @@
 
 .AppLocation:hover{
     background: #004346;
+}
+
+/* media */
+
+@media(max-width: 525px){
+    .App > div{
+        padding: 15px 31px 41px 31px;
+    }
+
+    .AppWrapper{
+        width: auto;
+        max-width: 390px;
+        min-width: 280px;
+    }
+
+    .App > img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+@media(max-width: 375px){
+    .App > div{
+        padding: 10px 25px 30px 25px;
+    }
+
+    .AppWrapper{
+        min-width: 250px;
+    }
+
+    .App > img{
+        width: 100%;
+        height: auto;
+    }
 }

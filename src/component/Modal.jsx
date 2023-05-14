@@ -1,5 +1,4 @@
-import React from 'react'
-import { Fragment } from 'react';
+import React, { useEffect, useRef } from 'react'
 import './Modal.css'
 
 import Location from "../images/location.svg"
@@ -7,13 +6,23 @@ import Back from "../images/back.svg"
 
 function Modal(props) {
 
+    let fadeOutAnim = useRef()
+
+    useEffect(() => {
+        fadeOutAnim.current.classList.add('fadeIn')
+    }, [])
+
     function closeModal() {
-        props.setVisible(false);
+        fadeOutAnim.current.classList.remove('fadeIn')
+        fadeOutAnim.current.classList.add('fadeOut')
+        setTimeout(() => {
+            props.setVisible(false);
+        }, 450)
     }
 
     let ImageURL = `http://openweathermap.org/img/wn/${props.data[0]?.imageURL}@2x.png`;
     return (
-        <section className='overlay'>
+        <section ref={fadeOutAnim} onClick={closeModal} className='overlay'>
             <div className='block'>
                 <img onClick={closeModal} src={Back} alt="" />
                 <h1>Weather App</h1>
@@ -22,7 +31,7 @@ function Modal(props) {
                     <span>{props.data[0]?.name}</span>
                 </div>
                 <div className='WeatherIcon'>
-                    <img src={ImageURL} alt="" />
+                    <img src={ImageURL} alt="weather icon" />
                 </div>
                 <div className='Description'>{props.data[0]?.description}</div>
                 <div className='Temprature'>{props.data[0]?.temprature} C</div>
